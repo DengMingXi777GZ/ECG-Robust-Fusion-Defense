@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyTorch
+*.pth
+*.pt
+!checkpoints/.gitkeep
+
+# Data files
+data/*.csv
+data/*.npy
+data/adversarial/*.pt
+data/adversarial/eps005/*.pt
+!data/adversarial/.gitkeep
+!data/adversarial/eps005/.gitkeep
+
+# Results
+results/*.png
+results/*.jpg
+results/*.json
+checkpoints/*.pth
+checkpoints/*.json
+!checkpoints/.gitkeep
+!results/.gitkeep
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Large files
+*.zip
+*.tar.gz
+*.rar

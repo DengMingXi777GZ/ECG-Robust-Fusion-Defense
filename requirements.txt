@@ -1,0 +1,28 @@
+# Deep Learning
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Data Processing
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.7.0
+
+# Machine Learning
+scikit-learn>=1.0.0
+
+# Visualization
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# ECG Signal Processing
+neurokit2>=0.2.0
+
+# Progress Bar
+tqdm>=4.62.0
+
+# Table Display
+tabulate>=0.8.9
+
+# Optional: Jupyter Support
+# jupyter>=1.0.0
+# ipython>=7.0.0
