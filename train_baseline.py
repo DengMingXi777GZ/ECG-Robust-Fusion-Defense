@@ -12,7 +12,7 @@ import sys
 # 添加项目根目录到路径
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from models.ecg_cnn import ECG_CNN
+from models.ecg_cnn import ECG_CNN #从models目录下的ecg_cnn.py文件中导入ECG_CNN类
 from data.mitbih_loader import get_mitbih_loaders
 
 
@@ -23,7 +23,7 @@ def train_epoch(model, loader, criterion, optimizer, device):
     correct = 0
     total = 0
     
-    pbar = tqdm(loader, desc="Training")
+    pbar = tqdm(loader, desc="Training") #创建一个进度条来显示训练过程
     for x, y in pbar:
         x, y = x.to(device), y.to(device)
         
@@ -34,9 +34,9 @@ def train_epoch(model, loader, criterion, optimizer, device):
         optimizer.step()
         
         total_loss += loss.item()
-        _, predicted = outputs.max(1)
-        total += y.size(0)
-        correct += predicted.eq(y).sum().item()
+        _, predicted = outputs.max(1) #outputs.max(1)返回每行的最大值和对应的索引，predicted是索引，即预测的类别,1是按行取最大值
+        total += y.size(0) #y.size(0)返回当前批次的样本数量，即总的样本数
+        correct += predicted.eq(y).sum().item() #predicted.eq(y)返回一个布尔张量，表示预测是否正确，sum().item()计算正确的数量
         
         pbar.set_postfix({'loss': f'{loss.item():.4f}', 'acc': f'{100.*correct/total:.2f}%'})
     
@@ -107,6 +107,7 @@ def train_model(epochs=30, batch_size=128, lr=0.001, checkpoint_path='checkpoint
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=lr)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', factor=0.5, patience=5)
+    # 学习率调整器会在验证准确率不提升时降低学习率，factor=0.5表示每次降低一半，patience=5表示等待5个epoch后再调整
     
     # 训练
     best_acc = 0
